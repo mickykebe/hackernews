@@ -27,7 +27,19 @@ export function StoryItem({ id }: Props) {
   }, []);
   return (
     <StoryItemContainer>
-      {story ? <p>{story.title}</p> : null}
+      {story ? (
+        <div className={styles.rootInner}>
+          <div className={styles.storyContent}>
+            <p className={styles.storyTitle}>{story.title}</p>
+            <p className={styles.storyBy}>
+              {story.by}
+              <span className={styles.storyTime}>{story.time}</span>
+            </p>
+            <p className={styles.storyUrl}>{story.url}</p>
+          </div>
+          <div className={styles.storyReaction}></div>
+        </div>
+      ) : null}
     </StoryItemContainer>
   );
 }

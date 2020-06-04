@@ -11,6 +11,9 @@ export function NavBar({ pageName }: Props) {
       <Logo pageName={pageName} />
       <ul className={styles.links}>
         <li>
+          <a href="#">top</a>
+        </li>
+        <li>
           <a href="#">new</a>
         </li>
         <li>

@@ -49,7 +49,7 @@
 
 .rootInner {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 64px;
 }
 
 .storyContent {
@@ -79,6 +79,28 @@
   font-size: 0.75rem;
 }
 
+.storyReactions {
+  background: rgba(211, 211, 211, 0.2);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .storyReaction {
-  background: var(--item-height);
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.storyReaction svg {
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.score {
+  margin-bottom: auto;
+}
+
+.comments {
 }

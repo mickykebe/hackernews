@@ -1,6 +1,10 @@
 import * as React from "react";
 import { Firebase } from "../firebase";
 import styles from "./storyitem.module.css";
+import {
+  GoCommentDiscussion as CommentIcon,
+  GoChevronUp as UpIcon,
+} from "react-icons/go";
 
 interface Props {
   id: number;
@@ -37,7 +41,14 @@ export function StoryItem({ id }: Props) {
             </p>
             <p className={styles.storyUrl}>{story.url}</p>
           </div>
-          <div className={styles.storyReaction}></div>
+          <div className={styles.storyReactions}>
+            <span className={`${styles.storyReaction} ${styles.score}`}>
+              <UpIcon /> {story.score}
+            </span>
+            <span className={`${styles.storyReaction} ${styles.comments}`}>
+              <CommentIcon /> {story.descendants}
+            </span>
+          </div>
         </div>
       ) : null}
     </StoryItemContainer>

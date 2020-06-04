@@ -1,0 +1,48 @@
+.root {
+  width: 100%;
+  min-height: var(--item-height);
+  border-bottom: 1px solid var(--lightgrey);
+  --item-padding: 1rem;
+  --item-height: 92px;
+  --lightgrey: rgba(211, 211, 211, 0.5);
+  --blur-width: 200px;
+  --blur-size: var(--blur-width) 100%;
+  --title-width: calc(100% - (2 * var(--item-padding)));
+  --title-height: 32px;
+  --title-position: var(--item-padding) var(--item-padding);
+  --details-width: calc(100% - (2 * var(--item-padding)));
+  --details-height: 24px;
+  --details-position: var(--item-padding)
+    calc(var(--item-padding) + var(--title-height) + 0.5rem);
+}
+
+.root:empty::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: var(--item-height);
+
+  background-image: linear-gradient(
+      90deg,
+      transparent 0,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 100%
+    ),
+    linear-gradient(var(--lightgrey) 30px, transparent 0),
+    linear-gradient(var(--lightgrey) 20px, transparent 0),
+    linear-gradient(white 100%, transparent 0);
+
+  background-size: var(--blur-size), var(--title-width) var(--title-height),
+    var(--details-width) var(--details-height), 100% 100%;
+  background-position: -150% 0, var(--title-position), var(--details-position),
+    0 0;
+  background-repeat: no-repeat;
+  animation: loading 2.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 350% 0, var(--title-position), var(--details-position),
+      0 0;
+  }
+}

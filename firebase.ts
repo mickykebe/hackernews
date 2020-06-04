@@ -21,6 +21,10 @@ class Firebase {
   topStories() {
     return this.db.child("topstories");
   }
+
+  item(itemId: number) {
+    return this.db.child(`item/${itemId}`);
+  }
 }
 
 export { Firebase };

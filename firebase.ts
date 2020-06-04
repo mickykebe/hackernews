@@ -1,9 +1,26 @@
-import firebase from "firebase";
+import * as firebase from "firebase/app";
+import "firebase/database";
 
-const config = {
-  databaseURL: "https://hacker-news.firebaseio.com",
-};
-firebase.initializeApp(config);
-const db = firebase.database().ref("/v0");
+class Firebase {
+  private static _instance: Firebase;
+  private db: firebase.database.Reference;
+  private constructor() {
+    const config = {
+      databaseURL: "https://hacker-news.firebaseio.com",
+    };
+    firebase.initializeApp(config);
+    this.db = firebase.database().ref("/v0");
+  }
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new Firebase();
+    }
+    return this._instance;
+  }
 
-export { db };
+  topStories() {
+    return this.db.child("topstories");
+  }
+}
+
+export { Firebase };

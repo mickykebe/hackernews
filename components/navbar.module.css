@@ -1,0 +1,27 @@
+.root {
+  background-color: white;
+  min-height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.logo {
+  flex: 1;
+}
+.links {
+  list-style: none;
+  display: flex;
+}
+.links li {
+  padding: 1rem;
+}
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0;
+}

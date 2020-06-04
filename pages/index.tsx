@@ -1,5 +1,6 @@
 import * as React from "react";
-import { db } from "../firebase";
+import { Firebase } from "../firebase";
+import { NavBar } from "../components/navbar";
 
 export default function Index() {
   const [storyIds, setStoryIds] = React.useState([]);
@@ -8,10 +9,16 @@ export default function Index() {
     const handler = (snapshot: firebase.database.DataSnapshot) => {
       setStoryIds(snapshot.val());
     };
-    db.child("topstories").on("value", handler);
+    const firebase = Firebase.getInstance();
+    firebase.topStories().on("value", handler);
     return () => {
-      db.child("topstories").off("value", handler);
+      firebase.topStories().off("value", handler);
     };
   }, []);
-  return storyIds.map((id) => <div>{id}</div>);
+  return (
+    <main>
+      <NavBar pageName="The Front Page" />
+    </main>
+  );
+  //return storyIds.map((id) => <div>{id}</div>);
 }

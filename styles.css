@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto + Slab:wght@300;400;700&display=swap);
+
+:root {
+  box-sizing: border-box;
+  --primary-color: #ff6600;
+  font-family: "Roboto Slab", serif;
+}
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}

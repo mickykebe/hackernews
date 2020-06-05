@@ -1,0 +1,27 @@
+.root {
+  color: white;
+  position: relative;
+  padding: 0.5rem 1rem;
+  line-height: 1.25rem;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid transparent;
+  background-color: var(--primary-color);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.root:hover {
+  background-color: var(--primary-color-light);
+}
+
+.root:active {
+  background-color: var(--primary-color-dark);
+}
+
+.root:focus {
+  box-shadow: 0 0 0 3px rgb(255, 102, 0, 0.45);
+  outline: 0;
+}

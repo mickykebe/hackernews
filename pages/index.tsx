@@ -7,7 +7,8 @@ import { STORIES_PER_PAGE } from "../constants";
 
 export default function Index() {
   const [storyIds, setStoryIds] = React.useState([]);
-  const [showPages, setShowPages] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const totalPages = Math.ceil((storyIds.length * 1.0) / STORIES_PER_PAGE);
 
   React.useEffect(() => {
     const handler = (snapshot: firebase.database.DataSnapshot) => {
@@ -19,20 +20,19 @@ export default function Index() {
       firebase.topStories().off("value", handler);
     };
   }, []);
-  const incShowPages = () => {
-    setShowPages((pages) => pages + 1);
+  const incCurrentPage = () => {
+    setCurrentPage((pages) => pages + 1);
   };
   return (
     <main>
       <NavBar pageName="The Front Page" />
       <div className={styles.container}>
         <StoryList
-          storyIds={storyIds.slice(0, STORIES_PER_PAGE * showPages)}
-          onLoadMore={incShowPages}
+          storyIds={storyIds.slice(0, STORIES_PER_PAGE * currentPage)}
+          onLoadMore={currentPage < totalPages ? incCurrentPage : undefined}
         />
         <div>Detail</div>
       </div>
     </main>
   );
-  //return storyIds.map((id) => <div>{id}</div>);
 }

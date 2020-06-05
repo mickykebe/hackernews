@@ -2,10 +2,11 @@ import * as React from "react";
 import styles from "./storylist.module.css";
 import { StoryItem, StoryItemContainer } from "./storyitem";
 import { STORIES_PER_PAGE } from "../constants";
+import { Button } from "./button";
 
 interface Props {
   storyIds: number[];
-  onLoadMore: () => void;
+  onLoadMore?: () => void;
 }
 
 export function StoryList({ storyIds, onLoadMore }: Props) {
@@ -18,11 +19,13 @@ export function StoryList({ storyIds, onLoadMore }: Props) {
       {storyIds.length > 0 && (
         <React.Fragment>
           {storyIds.map((id) => (
-            <div key={id}>
-              <StoryItem id={id} />
-            </div>
+            <StoryItem key={id} id={id} />
           ))}
-          <button onClick={onLoadMore}>Load More</button>
+          {onLoadMore && (
+            <Button className={styles.loadMoreButton} onClick={onLoadMore}>
+              Load More
+            </Button>
+          )}
         </React.Fragment>
       )}
     </div>

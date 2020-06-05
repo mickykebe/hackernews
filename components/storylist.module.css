@@ -1,3 +1,7 @@
 .root {
   overflow-y: scroll;
 }
+
+.loadMoreButton {
+  width: 100%;
+}

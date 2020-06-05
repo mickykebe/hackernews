@@ -3,6 +3,10 @@
 :root {
   box-sizing: border-box;
   --primary-color: #ff6600;
+  --primary-color-dark: #b44600;
+  --primary-color-light: #ff751a;
+  --text-primary: #272727;
+  --text-secondary: #7d7f80;
   font-family: "Roboto Slab", serif;
 }
 * {

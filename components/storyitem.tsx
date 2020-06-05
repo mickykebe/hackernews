@@ -5,6 +5,7 @@ import {
   GoCommentDiscussion as CommentIcon,
   GoChevronUp as UpIcon,
 } from "react-icons/go";
+import { format } from "timeago.js";
 
 interface Props {
   id: number;
@@ -37,7 +38,9 @@ export function StoryItem({ id }: Props) {
             <p className={styles.storyTitle}>{story.title}</p>
             <p className={styles.storyBy}>
               {story.by}
-              <span className={styles.storyTime}>{story.time}</span>
+              <span className={styles.storyTime}>
+                {format(story.time * 1000)}
+              </span>
             </p>
             <p className={styles.storyUrl}>{story.url}</p>
           </div>

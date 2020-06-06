@@ -1,3 +1,10 @@
+type StoryCategory =
+  | "askstories"
+  | "jobstories"
+  | "newstories"
+  | "showstories"
+  | "topstories";
+
 interface Story {
   id: number;
   deleted: boolean;

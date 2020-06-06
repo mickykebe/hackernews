@@ -63,6 +63,8 @@
 .storyTitle {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
+  color: inherit;
+  text-decoration: none;
 }
 
 .storyBy {
@@ -91,6 +93,7 @@
   flex-direction: column;
   align-items: center;
   color: var(--text-secondary);
+  text-decoration: none;
 }
 
 .storyReaction {

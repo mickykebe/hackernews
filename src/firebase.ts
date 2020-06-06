@@ -18,8 +18,8 @@ class Firebase {
     return this._instance;
   }
 
-  topStories() {
-    return this.db.child("topstories");
+  storiesRef(category: StoryCategory) {
+    return this.db.child(category);
   }
 
   item(itemId: number) {

@@ -6,6 +6,7 @@ import {
   GoChevronUp as UpIcon,
 } from "react-icons/go";
 import { format } from "timeago.js";
+import { Link } from "react-router-dom";
 
 interface Props {
   id: number;
@@ -24,18 +25,24 @@ export function StoryItem({ id }: Props) {
     const handler = (snapshot: firebase.database.DataSnapshot) => {
       setStory(snapshot.val());
     };
-    const firebase = Firebase.getInstance();
-    firebase.item(id).on("value", handler);
+    const itemRef = Firebase.getInstance().item(id);
+    itemRef.on("value", handler);
     return () => {
-      firebase.topStories().off("value", handler);
+      itemRef.off("value", handler);
     };
-  }, []);
+  }, [id]);
   return (
     <StoryItemContainer>
       {story ? (
         <div className={styles.rootInner}>
           <div className={styles.storyContent}>
-            <p className={styles.storyTitle}>{story.title}</p>
+            <a
+              href={story.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.storyTitle}>
+              {story.title}
+            </a>
             <p className={styles.storyBy}>
               {story.by}
               <span className={styles.storyTime}>
@@ -44,14 +51,14 @@ export function StoryItem({ id }: Props) {
             </p>
             <p className={styles.storyUrl}>{story.url}</p>
           </div>
-          <div className={styles.storyReactions}>
+          <Link to={`story/${story.id}`} className={styles.storyReactions}>
             <span className={`${styles.storyReaction} ${styles.score}`}>
               <UpIcon /> {story.score}
             </span>
             <span className={`${styles.storyReaction} ${styles.comments}`}>
               <CommentIcon /> {story.descendants}
             </span>
-          </div>
+          </Link>
         </div>
       ) : null}
     </StoryItemContainer>

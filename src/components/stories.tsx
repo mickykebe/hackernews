@@ -1,25 +1,19 @@
 import * as React from "react";
-import { Firebase } from "../firebase";
-import { NavBar } from "../components/navbar";
-import styles from "./index.module.css";
-import { StoryList } from "../components/storylist";
+import { NavBar } from "./navbar";
+import styles from "./stories.module.css";
+import { StoryList } from "./storylist";
 import { STORIES_PER_PAGE } from "../constants";
+import { useStories } from "../hooks/useStories";
 
-export default function Index() {
-  const [storyIds, setStoryIds] = React.useState([]);
+interface Props {
+  category: StoryCategory;
+}
+
+export function Stories({ category }: Props) {
+  const storyIds = useStories(category);
   const [currentPage, setCurrentPage] = React.useState(1);
   const totalPages = Math.ceil((storyIds.length * 1.0) / STORIES_PER_PAGE);
 
-  React.useEffect(() => {
-    const handler = (snapshot: firebase.database.DataSnapshot) => {
-      setStoryIds(snapshot.val());
-    };
-    const firebase = Firebase.getInstance();
-    firebase.topStories().on("value", handler);
-    return () => {
-      firebase.topStories().off("value", handler);
-    };
-  }, []);
   const incCurrentPage = () => {
     setCurrentPage((pages) => pages + 1);
   };

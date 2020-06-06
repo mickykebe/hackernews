@@ -1,3 +1,4 @@
+import * as React from "react";
 import styles from "./logo.module.css";
 
 interface Props {

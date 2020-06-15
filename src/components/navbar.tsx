@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { Logo } from "./logo";
 import styles from "./navbar.module.css";
 
@@ -12,10 +13,10 @@ export function NavBar({ pageName }: Props) {
       <Logo pageName={pageName} />
       <ul className={styles.links}>
         <li>
-          <a href="#">top</a>
+          <Link to="/top">top</Link>
         </li>
         <li>
-          <a href="#">new</a>
+          <Link to="/new">new</Link>
         </li>
         <li>
           <a href="#">comments</a>

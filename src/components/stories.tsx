@@ -4,6 +4,7 @@ import styles from "./stories.module.css";
 import { StoryList } from "./storylist";
 import { STORIES_PER_PAGE } from "../constants";
 import { useStories } from "../hooks/useStories";
+import chooseImg from "../images/choose.svg";
 
 interface Props {
   category: StoryCategory;
@@ -25,7 +26,10 @@ export function Stories({ category }: Props) {
           storyIds={storyIds.slice(0, STORIES_PER_PAGE * currentPage)}
           onLoadMore={currentPage < totalPages ? incCurrentPage : undefined}
         />
-        <div>Detail</div>
+        <div className={styles.detail}>
+          <img src={chooseImg} alt="No story selected" />
+          <p>No Story Selected</p>
+        </div>
       </div>
     </main>
   );

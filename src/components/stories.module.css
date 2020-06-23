@@ -1,6 +1,34 @@
 .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: minmax(350px, 1fr) 3fr;
   padding-top: 64px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail img {
+  max-width: 20%;
+  margin-bottom: 16px;
+}
+
+.detail p {
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .detail {
+    display: none;
+  }
 }

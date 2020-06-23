@@ -1,31 +1,39 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Logo } from "./logo";
 import styles from "./navbar.module.css";
+import { useCategory } from "../hooks/useCategory";
 
-interface Props {
-  pageName: string;
-}
+const pageNames: { [key in StoryCategory]: string } = {
+  topstories: "The Front Page",
+  askstories: "Ask HackerNews",
+  newstories: "New on HackerNews",
+  jobstories: "Jobs on HackerNews",
+  showstories: "Show HackerNews",
+};
 
-export function NavBar({ pageName }: Props) {
+export function NavBar() {
+  const category = useCategory();
+  const { itemId } = useParams();
+  const itemIdParam = itemId ? `${itemId}` : "";
   return (
     <nav className={styles.root}>
-      <Logo pageName={pageName} />
+      <Logo pageName={pageNames[category]} />
       <ul className={styles.links}>
         <li>
-          <Link to="/?page=top">top</Link>
+          <Link to={`/top/${itemIdParam}`}>top</Link>
         </li>
         <li>
-          <Link to="/?page=new">new</Link>
+          <Link to={`/new/${itemIdParam}`}>new</Link>
         </li>
         <li>
-          <a href="/?page=ask">ask</a>
+          <Link to={`/ask/${itemIdParam}`}>ask</Link>
         </li>
         <li>
-          <a href="/?page=show">show</a>
+          <Link to={`/show/${itemIdParam}`}>show</Link>
         </li>
         <li>
-          <a href="/?page=jobs">jobs</a>
+          <Link to={`/jobs/${itemIdParam}`}>jobs</Link>
         </li>
       </ul>
     </nav>

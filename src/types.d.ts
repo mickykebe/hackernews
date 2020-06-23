@@ -1,4 +1,4 @@
-type PageQueryParams = "top" | "new" | "show" | "ask" | "jobs";
+type PageUrl = "top" | "new" | "show" | "ask" | "jobs";
 
 type StoryCategory =
   | "askstories"

@@ -3,7 +3,7 @@
   min-height: var(--item-height);
   border-bottom: 1px solid var(--lightgrey);
   --item-padding: 1rem;
-  --item-height: 92px;
+  --item-height: 5rem;
   --lightgrey: rgba(211, 211, 211, 0.5);
   --blur-width: 200px;
   --blur-size: var(--blur-width) 100%;
@@ -50,6 +50,11 @@
 .rootInner {
   display: grid;
   grid-template-columns: 1fr 64px;
+}
+
+.contentContainer {
+  display: flex;
+  overflow-x: hidden;
 }
 
 .storyContent {
@@ -112,4 +117,9 @@
 }
 
 .comments {
+}
+
+.selected {
+  min-width: 0.5rem;
+  background-color: var(--primary-color);
 }

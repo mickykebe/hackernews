@@ -5,6 +5,10 @@
   padding-top: 64px;
 }
 
+.listContainer {
+  overflow-y: scroll;
+}
+
 .detail {
   display: flex;
   flex-direction: column;
@@ -29,6 +33,14 @@
   }
 
   .detail {
+    display: none;
+  }
+
+  .container.itemSelected .detail {
+    display: flex;
+  }
+
+  .container.itemSelected .listContainer {
     display: none;
   }
 }

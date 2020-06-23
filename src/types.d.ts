@@ -1,3 +1,5 @@
+type PageQueryParams = "top" | "new" | "show" | "ask" | "jobs";
+
 type StoryCategory =
   | "askstories"
   | "jobstories"

@@ -10,6 +10,7 @@ import { Comments } from "./comments";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { BackButton } from "./backbutton";
 import { useParams, useHistory } from "react-router-dom";
+import { FiExternalLink as LinkIcon } from "react-icons/fi";
 
 interface Props {
   id: number;
@@ -46,6 +47,9 @@ export function StoryDetail({ id }: Props) {
             {story.descendants}
           </span>
         </div>
+        <a className={styles.storyLink} target="__blank" href={story.url}>
+          <LinkIcon /> {story.url}
+        </a>
       </div>
       <Comments ids={story.kids} />
     </div>

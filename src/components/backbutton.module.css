@@ -5,8 +5,7 @@
   color: var(--primary-color);
   padding: 0.5rem 1rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
-  font-weight: 700;
+  font-weight: 300;
   font-size: 1rem;
   margin: 0 0 0.5rem;
   cursor: pointer;
@@ -17,10 +16,14 @@
   background-color: #fafafa;
 }
 
+.root:active {
+  background-color: #e1e1e1;
+}
+
 .root:focus {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .icon {
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
 }

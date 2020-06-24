@@ -18,6 +18,7 @@
   grid-template-columns: repeat(3, max-content);
   grid-auto-flow: column;
   color: var(--text-secondary);
+  margin-bottom: 0.5rem;
 }
 
 .storyDetailItem {
@@ -26,5 +27,17 @@
 }
 
 .storyDetailIcon {
+  margin-right: 0.5rem;
+}
+
+.storyLink {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.storyLink svg {
   margin-right: 0.5rem;
 }

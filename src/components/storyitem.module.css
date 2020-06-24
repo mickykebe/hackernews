@@ -83,7 +83,7 @@
 }
 
 .storyUrl {
-  color: #a2a2a2;
+  color: var(--text-secondary);
   font-size: 0.75rem;
   width: 100%;
   white-space: nowrap;

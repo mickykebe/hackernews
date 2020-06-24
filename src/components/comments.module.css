@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+}
+
+.threadLine {
+  width: 1px;
+  margin-right: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.content {
+}

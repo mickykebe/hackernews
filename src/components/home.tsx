@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { NavBar } from "./navbar";
 import styles from "./home.module.css";
 import { StoryList } from "./storylist";
-import { ItemDetails } from "./itemdetails";
+import { StoryDetail } from "./storydetail";
 import chooseImg from "../images/choose.svg";
 
 export function Home() {
@@ -21,7 +21,7 @@ export function Home() {
           <StoryList />
         </div>
         {itemSelected ? (
-          <ItemDetails />
+          <StoryDetail id={itemId} />
         ) : (
           <div className={styles.detail}>
             <img src={chooseImg} alt="No story selected" />

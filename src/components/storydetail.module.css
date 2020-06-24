@@ -1,0 +1,30 @@
+.root {
+  padding: 0.5rem 1rem;
+  overflow-y: scroll;
+}
+
+.head {
+  padding-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.storyDetails {
+  display: grid;
+  grid-gap: 1.25rem;
+  grid-template-columns: repeat(3, max-content);
+  grid-auto-flow: column;
+  color: var(--text-secondary);
+}
+
+.storyDetailItem {
+  display: flex;
+  align-items: center;
+}
+
+.storyDetailIcon {
+  margin-right: 0.5rem;
+}

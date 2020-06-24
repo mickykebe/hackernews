@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding: 0.5rem 0;
+}
+
+.user {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.userIcon {
+  margin-right: 0.25rem;
+}
+
+.userName {
+  font-size: 0.825rem;
+  font-weight: 700;
+}

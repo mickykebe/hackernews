@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.root:hover {
+  background-color: #fafafa;
+}
+
+.root:focus {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  margin-right: 0.5rem;
+}

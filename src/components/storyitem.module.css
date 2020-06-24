@@ -120,6 +120,6 @@
 }
 
 .selected {
-  min-width: 0.5rem;
+  min-width: 0.25rem;
   background-color: var(--primary-color);
 }

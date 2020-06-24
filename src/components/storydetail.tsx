@@ -7,6 +7,9 @@ import {
   GoChevronUp as UpIcon,
 } from "react-icons/go";
 import { Comments } from "./comments";
+import { useWindowSize } from "../hooks/useWindowSize";
+import { BackButton } from "./backbutton";
+import { useParams, useHistory } from "react-router-dom";
 
 interface Props {
   id: number;
@@ -14,11 +17,19 @@ interface Props {
 
 export function StoryDetail({ id }: Props) {
   const story = useStory(id);
+  const { width } = useWindowSize();
+  const { page } = useParams();
+  const history = useHistory();
   if (!story) {
     return <div>Loading</div>;
   }
+  const handleBackClick = () => {
+    let currentPage = page || "top";
+    history.push(`/${currentPage}`);
+  };
   return (
     <div className={styles.root}>
+      {(width as number) < 960 && <BackButton onClick={handleBackClick} />}
       <div className={styles.head}>
         <p className={styles.title}>{story.title}</p>
         <div className={styles.storyDetails}>

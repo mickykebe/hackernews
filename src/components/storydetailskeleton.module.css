@@ -2,16 +2,22 @@
   width: 100%;
   min-height: var(--item-height);
   --item-padding: 1rem;
-  --item-height: 5rem;
+  --item-height: 8rem;
   --lightgrey: rgba(211, 211, 211, 0.5);
   --blur-width: 200px;
   --blur-size: var(--blur-width) 100%;
-  --user-width: 100px;
-  --user-height: 1rem;
+  --title-width: 100%;
+  --title-height: 2rem;
   --title-position: 0 var(--item-padding);
-  --details-width: 100%;
-  --details-height: 2rem;
-  --details-position: 0 calc(var(--item-padding) + var(--user-height) + 0.5rem);
+  --details-width: 200px;
+  --details-height: 1rem;
+  --url-width: 75%;
+  --url-height: 1rem;
+  --details-position: 0 calc(var(--item-padding) + var(--title-height) + 0.5rem);
+  --url-position: 0
+    calc(
+      var(--item-padding) + var(--title-height) + var(--details-height) + 1rem
+    );
 }
 
 .root:empty::after {
@@ -19,7 +25,6 @@
   display: block;
   width: 100%;
   height: var(--item-height);
-
   background-image: linear-gradient(
       90deg,
       transparent 0,
@@ -28,12 +33,14 @@
     ),
     linear-gradient(var(--lightgrey) 30px, transparent 0),
     linear-gradient(var(--lightgrey) 100%, transparent 0),
+    linear-gradient(var(--lightgrey) 100%, transparent 0),
     linear-gradient(white 100%, transparent 0);
 
-  background-size: var(--blur-size), var(--user-width) var(--user-height),
-    var(--details-width) var(--details-height), 100% 100%;
+  background-size: var(--blur-size), var(--title-width) var(--title-height),
+    var(--details-width) var(--details-height),
+    var(--url-width) var(--url-height), 100% 100%;
   background-position: -150% 0, var(--title-position), var(--details-position),
-    0 0;
+    var(--url-position), 0 0;
   background-repeat: no-repeat;
   animation: loading 2.5s infinite;
 }
@@ -41,6 +48,6 @@
 @keyframes loading {
   to {
     background-position: 350% 0, var(--title-position), var(--details-position),
-      0 0;
+      var(--url-position), 0 0;
   }
 }

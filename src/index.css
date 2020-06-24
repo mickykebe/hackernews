@@ -19,3 +19,15 @@
 main {
   height: 100vh;
 }
+
+@media (max-width: 960px) {
+  :root {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 75%;
+  }
+}

@@ -8,6 +8,7 @@
   --text-primary: #272727;
   --text-secondary: #7d7f80;
   font-family: "Roboto Slab", serif;
+  line-height: 1.5;
 }
 * {
   box-sizing: inherit;

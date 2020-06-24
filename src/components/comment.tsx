@@ -20,16 +20,15 @@ export function Comment({ id }: Props) {
 
   return (
     <div className={styles.root}>
-      <div>
-        <span className={styles.user}>
-          <UserIcon className={styles.userIcon} />
-          <span className={styles.userName}>{comment.by}</span>
-        </span>
+      <div className={styles.content}>
+        <div>
+          <span className={styles.user}>
+            <UserIcon className={styles.userIcon} />
+            <span className={styles.userName}>{comment.by}</span>
+          </span>
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: comment.text }} />
       </div>
-      <div
-        className={styles.content}
-        dangerouslySetInnerHTML={{ __html: comment.text }}
-      />
       <Comments ids={comment.kids} />
     </div>
   );

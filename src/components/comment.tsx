@@ -3,6 +3,7 @@ import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { useStory } from "../hooks/useStory";
 import { Comments } from "./comments";
 import styles from "./comment.module.css";
+import { CommentSkeleton } from "./commentskeleton";
 
 interface Props {
   id: number;
@@ -11,25 +12,26 @@ interface Props {
 export function Comment({ id }: Props) {
   const comment = useStory(id);
 
-  if (!comment) {
-    return <div>Loading</div>;
-  }
-  if (comment.dead || comment.deleted) {
+  if (comment && (comment.dead || comment.deleted)) {
     return null;
   }
 
   return (
-    <div className={styles.root}>
-      <div className={styles.content}>
-        <div>
-          <span className={styles.user}>
-            <UserIcon className={styles.userIcon} />
-            <span className={styles.userName}>{comment.by}</span>
-          </span>
+    <CommentSkeleton>
+      {comment && (
+        <div className={styles.root}>
+          <div className={styles.content}>
+            <div>
+              <span className={styles.user}>
+                <UserIcon className={styles.userIcon} />
+                <span className={styles.userName}>{comment.by}</span>
+              </span>
+            </div>
+            <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+          </div>
+          <Comments ids={comment.kids} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: comment.text }} />
-      </div>
-      <Comments ids={comment.kids} />
-    </div>
+      )}
+    </CommentSkeleton>
   );
 }

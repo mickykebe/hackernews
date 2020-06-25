@@ -12,16 +12,3 @@
 .logo {
   flex: 1;
 }
-.links {
-  list-style: none;
-  display: flex;
-}
-.links li {
-  padding: 1rem;
-}
-.links a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0;
-}

@@ -1,0 +1,117 @@
+.toggle {
+  position: absolute;
+  opacity: 0;
+  top: 2rem;
+  right: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 3;
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger {
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  display: none;
+}
+
+.hamburger > span {
+  position: relative;
+  transition: all 0.2s ease-in;
+}
+
+.hamburger > span,
+.hamburger > span:before,
+.hamburger > span::after {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.hamburger > span:before,
+.hamburger > span::after {
+  content: "";
+  position: absolute;
+}
+
+.hamburger > span:before {
+  top: -0.5rem;
+  /* transform: translateY(-10px); */
+}
+
+.hamburger > span:after {
+  top: 0.5rem;
+}
+
+.toggle:checked + .hamburger > span {
+  transform: rotate(135deg);
+}
+
+.toggle:checked + .hamburger > span:before,
+.toggle:checked + .hamburger > span:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.toggle:checked:hover + .hamburger > span {
+  transform: rotate(225deg);
+}
+
+.links {
+  list-style: none;
+  display: flex;
+}
+.links li {
+  padding: 1rem;
+}
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0;
+}
+
+@media (max-width: 500px) {
+  .toggle {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .linksContainer {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    display: none;
+    transition: all 0.4s ease-in;
+  }
+
+  .toggle:checked ~ .linksContainer {
+    display: flex;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links a {
+    font-size: 1.5rem;
+  }
+}

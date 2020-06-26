@@ -15,6 +15,10 @@ export function StoryList() {
   const incCurrentPage = () => {
     setCurrentPage((pages) => pages + 1);
   };
+  // Back to first page when category changes.
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [category]);
   return (
     <React.Fragment>
       {storyIds.length === 0 &&

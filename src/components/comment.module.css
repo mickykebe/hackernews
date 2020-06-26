@@ -22,3 +22,26 @@
   font-size: 0.825rem;
   font-weight: 700;
 }
+
+.content a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-secondary);
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.content pre {
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+@media (max-width: 500px) {
+  .content a {
+    max-width: 250px;
+  }
+  .content pre {
+    max-width: 250px;
+  }
+}

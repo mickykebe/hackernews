@@ -5,5 +5,5 @@
 </p>
 
 <p align="center">
-  Hacker News with a cleaner UI
+  Hacker News with a cleaner UI. <a href="https://hackernews-kappa.vercel.app/">Open site</a>
 </p>

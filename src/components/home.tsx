@@ -17,9 +17,7 @@ export function Home() {
         className={clsx(styles.container, {
           [styles.itemSelected]: itemSelected,
         })}>
-        <div className={styles.listContainer}>
-          <StoryList />
-        </div>
+        <StoryList />
         {itemSelected ? (
           <StoryDetail id={itemId} />
         ) : (

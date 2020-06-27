@@ -15,12 +15,15 @@ export function StoryList() {
   const incCurrentPage = () => {
     setCurrentPage((pages) => pages + 1);
   };
-  // Back to first page when category changes.
+  const rootEl = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
-    setCurrentPage(1);
+    setCurrentPage(1); // Back to first page when category changes.
+    if (rootEl.current) {
+      rootEl.current.scrollTop = 0; //Scroll to top on category change.
+    }
   }, [category]);
   return (
-    <React.Fragment>
+    <div className={styles.root} ref={rootEl}>
       {storyIds.length === 0 &&
         Array.from({ length: STORIES_PER_PAGE }).map((_, i) => (
           <StoryItemContainer key={i} />
@@ -37,6 +40,6 @@ export function StoryList() {
           )}
         </React.Fragment>
       )}
-    </React.Fragment>
+    </div>
   );
 }

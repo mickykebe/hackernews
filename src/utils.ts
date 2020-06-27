@@ -4,4 +4,5 @@ export const pageCategory: { [key in PageUrl]: StoryCategory } = {
   ask: "askstories",
   show: "showstories",
   jobs: "jobstories",
+  best: "beststories",
 };

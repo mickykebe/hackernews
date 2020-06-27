@@ -1,11 +1,12 @@
-type PageUrl = "top" | "new" | "show" | "ask" | "jobs";
+type PageUrl = "top" | "new" | "show" | "ask" | "jobs" | "best";
 
 type StoryCategory =
   | "askstories"
   | "jobstories"
   | "newstories"
   | "showstories"
-  | "topstories";
+  | "topstories"
+  | "beststories";
 
 interface Story {
   id: number;

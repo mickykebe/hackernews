@@ -7,7 +7,7 @@ export function NavMenu() {
   const { itemId } = useParams();
   const { width } = useWindowSize();
   let itemIdParam = "";
-  if (itemId && width && width > 500) {
+  if (itemId && width && width > 600) {
     itemIdParam = `${itemId}`;
   }
   const [menuToggled, setMenuToggled] = React.useState(false);
@@ -38,6 +38,11 @@ export function NavMenu() {
           <li>
             <Link to={`/new/${itemIdParam}`} onClick={closeMenu}>
               new
+            </Link>
+          </li>
+          <li>
+            <Link to={`/best/${itemIdParam}`} onClick={closeMenu}>
+              best
             </Link>
           </li>
           <li>

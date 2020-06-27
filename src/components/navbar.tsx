@@ -10,6 +10,7 @@ const pageNames: { [key in StoryCategory]: string } = {
   newstories: "New on HackerNews",
   jobstories: "Jobs on HackerNews",
   showstories: "Show HackerNews",
+  beststories: "Best on HackerNews",
 };
 
 export function NavBar() {

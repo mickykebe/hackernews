@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Firebase } from "../firebase";
 import styles from "./storyitem.module.css";
 import {
   GoCommentDiscussion as CommentIcon,
@@ -7,6 +6,7 @@ import {
 } from "react-icons/go";
 import { format } from "timeago.js";
 import { Link, useParams } from "react-router-dom";
+import { useStory } from "../hooks/useStory";
 
 interface Props {
   id: number;
@@ -20,18 +20,8 @@ export function StoryItemContainer(props: {
 }
 
 export function StoryItem({ id }: Props) {
-  const [story, setStory] = React.useState<Story>();
+  const story = useStory(id);
   const { page, itemId } = useParams();
-  React.useEffect(() => {
-    const handler = (snapshot: firebase.database.DataSnapshot) => {
-      setStory(snapshot.val());
-    };
-    const itemRef = Firebase.getInstance().item(id);
-    itemRef.on("value", handler);
-    return () => {
-      itemRef.off("value", handler);
-    };
-  }, [id]);
   return (
     <StoryItemContainer>
       {story ? (

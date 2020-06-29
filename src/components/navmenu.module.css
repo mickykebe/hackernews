@@ -1,26 +1,23 @@
-.toggle {
+.toggle,
+.hamburger {
   position: absolute;
-  opacity: 0;
-  top: 2rem;
+  top: 1.5rem;
   right: 1.5rem;
   width: 1.5rem;
   height: 1.5rem;
-  z-index: 3;
-  cursor: pointer;
   display: none;
 }
 
+.toggle {
+  opacity: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
 .hamburger {
-  position: absolute;
-  top: 2rem;
-  right: 1.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
-  display: none;
 }
 
 .hamburger > span {
@@ -113,5 +110,12 @@
 
   .links a {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .toggle,
+  .hamburger {
+    top: 1.75rem;
   }
 }

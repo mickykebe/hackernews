@@ -4,7 +4,7 @@
   box-sizing: border-box;
   --primary-color: #ff6600;
   --primary-color-dark: #b44600;
-  --primary-color-light: #ff751a;
+  --primary-color-light: rgba(255, 102, 0, 0.7);
   --text-primary: #272727;
   --text-secondary: #7d7f80;
   font-family: "Roboto Slab", serif;

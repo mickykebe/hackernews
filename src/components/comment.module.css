@@ -35,11 +35,28 @@
   padding: 0.5rem;
 }
 
+.collapsedRoot {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  background-color: rgba(211, 211, 211, 0.2);
+}
+
+.collapsedRoot > * + * {
+  margin-left: 0.5rem;
+}
+
+.collapsedRoot .addIcon {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
 @media (max-width: 500px) {
   .content a {
-    max-width: 250px;
+    max-width: 125px;
   }
   .content pre {
-    max-width: 250px;
+    max-width: 125px;
   }
 }

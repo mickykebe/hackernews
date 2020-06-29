@@ -1,12 +1,16 @@
 import * as React from "react";
+import clsx from "clsx";
 import styles from "./storylist.module.css";
 import { StoryItem, StoryItemContainer } from "./storyitem";
 import { STORIES_PER_PAGE } from "../constants";
 import { Button } from "./button";
 import { useStories } from "../hooks/useStories";
 import { useCategory } from "../hooks/useCategory";
+import { useParams } from "react-router-dom";
 
 export function StoryList() {
+  const { itemId } = useParams();
+  const itemSelected = !!itemId;
   const category = useCategory();
   const allStoryIds = useStories(category);
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -23,7 +27,11 @@ export function StoryList() {
     }
   }, [category]);
   return (
-    <div className={styles.root} ref={rootEl}>
+    <div
+      className={clsx(styles.root, {
+        [styles.itemSelected]: itemSelected,
+      })}
+      ref={rootEl}>
       {storyIds.length === 0 &&
         Array.from({ length: STORIES_PER_PAGE }).map((_, i) => (
           <StoryItemContainer key={i} />

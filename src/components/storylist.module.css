@@ -5,3 +5,9 @@
 .loadMoreButton {
   width: 100%;
 }
+
+@media (max-width: 960px) {
+  .root.itemSelected {
+    display: none;
+  }
+}

@@ -35,8 +35,4 @@
   .container.itemSelected .detail {
     display: flex;
   }
-
-  .container.itemSelected .listContainer {
-    display: none;
-  }
 }

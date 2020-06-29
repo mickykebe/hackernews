@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.emptySpace {
+  width: 2px;
+  height: 100%;
+}
+
+.line {
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+}
+
+.root:hover .emptySpace {
+  width: 2px;
+}
+
+.root:hover .line {
+  width: 3px;
+  background-color: var(--primary-color);
+}

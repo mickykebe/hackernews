@@ -11,13 +11,10 @@ export function Comments({ ids }: Props) {
     return null;
   }
   return (
-    <div className={styles.root}>
-      <div className={styles.threadLine} />
-      <div className={styles.content}>
-        {ids.map((id) => (
-          <Comment key={id} id={id} />
-        ))}
-      </div>
+    <div>
+      {ids.map((id) => (
+        <Comment key={id} id={id} />
+      ))}
     </div>
   );
 }

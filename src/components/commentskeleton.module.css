@@ -1,6 +1,5 @@
 .root {
   width: 100%;
-  min-height: var(--item-height);
   --item-padding: 1rem;
   --item-height: 5rem;
   --lightgrey: rgba(211, 211, 211, 0.5);
@@ -18,8 +17,7 @@
   content: "";
   display: block;
   width: 100%;
-  height: var(--item-height);
-
+  min-height: var(--item-height);
   background-image: linear-gradient(
       90deg,
       transparent 0,

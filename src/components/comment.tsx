@@ -4,6 +4,7 @@ import { useStory } from "../hooks/useStory";
 import { Comments } from "./comments";
 import styles from "./comment.module.css";
 import { CommentSkeleton } from "./commentskeleton";
+import { ThreadLine } from "./threadline";
 
 interface Props {
   id: number;
@@ -20,16 +21,18 @@ export function Comment({ id }: Props) {
     <CommentSkeleton>
       {comment && (
         <div className={styles.root}>
-          <div className={styles.content}>
-            <div>
-              <span className={styles.user}>
-                <UserIcon className={styles.userIcon} />
-                <span className={styles.userName}>{comment.by}</span>
-              </span>
-            </div>
-            <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+          <UserIcon className={styles.userIcon} />
+          <div className={styles.username}>
+            <span>{comment.by}</span>
           </div>
-          <Comments ids={comment.kids} />
+          <ThreadLine />
+          <div className={styles.contentContainer}>
+            <div
+              className={styles.content}
+              dangerouslySetInnerHTML={{ __html: comment.text }}
+            />
+            <Comments ids={comment.kids} />
+          </div>
         </div>
       )}
     </CommentSkeleton>

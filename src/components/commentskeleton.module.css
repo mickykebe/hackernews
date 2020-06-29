@@ -2,7 +2,6 @@
   width: 100%;
   --item-padding: 1rem;
   --item-height: 5rem;
-  --lightgrey: rgba(211, 211, 211, 0.5);
   --blur-width: 200px;
   --blur-size: var(--blur-width) 100%;
   --user-width: 100px;

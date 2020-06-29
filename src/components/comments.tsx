@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./comments.module.css";
 import { Comment } from "./comment";
 
 interface Props {

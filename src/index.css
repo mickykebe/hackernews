@@ -7,6 +7,7 @@
   --primary-color-light: rgba(255, 102, 0, 0.7);
   --text-primary: #272727;
   --text-secondary: #7d7f80;
+  --lightgrey: rgba(211, 211, 211, 0.5);
   font-family: "Roboto Slab", serif;
   line-height: 1.5;
 }

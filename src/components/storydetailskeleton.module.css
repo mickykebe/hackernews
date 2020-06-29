@@ -3,7 +3,6 @@
   min-height: var(--item-height);
   --item-padding: 1rem;
   --item-height: 8rem;
-  --lightgrey: rgba(211, 211, 211, 0.5);
   --blur-width: 200px;
   --blur-size: var(--blur-width) 100%;
   --title-width: 100%;

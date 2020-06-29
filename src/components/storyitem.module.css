@@ -1,7 +1,6 @@
 .root {
   width: 100%;
   min-height: var(--item-height);
-  border-bottom: 1px solid var(--lightgrey);
   --item-padding: 1rem;
   --item-height: 5rem;
   --lightgrey: rgba(211, 211, 211, 0.5);

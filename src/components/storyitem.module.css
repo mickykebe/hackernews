@@ -1,18 +1,25 @@
 .root {
   width: 100%;
   min-height: var(--item-height);
+  border-bottom: 1px solid var(--lightgrey);
   --item-padding: 1rem;
-  --item-height: 5rem;
-  --lightgrey: rgba(211, 211, 211, 0.5);
+  --item-height: 6.6rem;
   --blur-width: 200px;
   --blur-size: var(--blur-width) 100%;
-  --title-width: calc(100% - (2 * var(--item-padding)));
-  --title-height: 32px;
-  --title-position: var(--item-padding) var(--item-padding);
-  --details-width: calc(100% - (2 * var(--item-padding)));
-  --details-height: 24px;
-  --details-position: var(--item-padding)
+  --title-width: 50%;
+  --title-height: 1.25rem;
+  --author-width: 25%;
+  --author-height: 1.25rem;
+  --author-position: var(--item-padding)
     calc(var(--item-padding) + var(--title-height) + 0.5rem);
+  --url-width: calc(100% - var(--reactions-width) - (2 * var(--item-padding)));
+  --url-height: 1.25rem;
+  --reactions-width: 5rem;
+  --reactions-height: 100%;
+  --reactions-position: 100% 100%;
+  --title-position: var(--item-padding) var(--item-padding);
+  --url-position: var(--item-padding)
+    calc(2 * var(--item-padding) + var(--title-height) + var(--author-height));
 }
 
 .root:empty::after {
@@ -20,7 +27,6 @@
   display: block;
   width: 100%;
   height: var(--item-height);
-
   background-image: linear-gradient(
       90deg,
       transparent 0,
@@ -29,20 +35,23 @@
     ),
     linear-gradient(var(--lightgrey) 30px, transparent 0),
     linear-gradient(var(--lightgrey) 20px, transparent 0),
+    linear-gradient(var(--lightgrey) 20px, transparent 0),
+    linear-gradient(var(--lightgrey) 100%, transparent 0),
     linear-gradient(white 100%, transparent 0);
 
   background-size: var(--blur-size), var(--title-width) var(--title-height),
-    var(--details-width) var(--details-height), 100% 100%;
-  background-position: -150% 0, var(--title-position), var(--details-position),
-    0 0;
+    var(--author-width) var(--author-height), var(--url-width) var(--url-height),
+    var(--reactions-width) var(--reactions-height), 100% 100%;
+  background-position: -150% 0, var(--title-position), var(--author-position),
+    var(--url-position), var(--reactions-position), 0 0;
   background-repeat: no-repeat;
   animation: loading 2.5s infinite;
 }
 
 @keyframes loading {
   to {
-    background-position: 350% 0, var(--title-position), var(--details-position),
-      0 0;
+    background-position: 350% 0, var(--title-position), var(--author-position),
+      var(--url-position), var(--reactions-position), 0 0;
   }
 }
 

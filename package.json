@@ -19,7 +19,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "timeago.js": "^4.0.2",
-    "typescript": "~3.7.2"
+    "typescript": "~4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
